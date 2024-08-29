@@ -1,6 +1,5 @@
 package com.github.andrewmaneshin.lemonadeapp
 
-import android.content.Context
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,16 +13,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
-        val viewModel = LemonadeViewModel(
-            LemonadeRepository.Base(
-                IntCache.Base(
-                    applicationContext.getSharedPreferences(
-                        R.string.app_name.toString(),
-                        Context.MODE_PRIVATE
-                    ), "Index", 0
+        val viewModel = (application as App).viewModel
+        lateinit var uiState: LemonadeUiState
+        val update = {
+            with(binding) {
+                uiState.update(
+                    imageButton,
+                    descriptionTextView
                 )
-            )
-        )
+            }
+        }
 
         enableEdgeToEdge()
         setContentView(binding.rootLayout)
@@ -34,15 +33,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.imageButton.setOnClickListener {
-            viewModel.next().update(
-                binding.imageButton,
-                binding.descriptionTextView
-            )
+            uiState = viewModel.next()
+            update.invoke()
         }
 
-        viewModel.init(savedInstanceState == null).update(
-            binding.imageButton,
-            binding.descriptionTextView
-        )
+        uiState = viewModel.init(savedInstanceState == null)
+        update.invoke()
     }
 }

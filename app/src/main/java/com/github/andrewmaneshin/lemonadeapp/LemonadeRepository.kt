@@ -1,5 +1,7 @@
 package com.github.andrewmaneshin.lemonadeapp
 
+import com.github.andrewmaneshin.lemonadeapp.view.SqueezeStrategy
+
 interface LemonadeRepository {
 
     fun next()
@@ -7,7 +9,8 @@ interface LemonadeRepository {
     fun descriptionRes(): Int
 
     class Base(
-        private val index: IntCache
+        private val index: IntCache,
+        private val squeezeStrategy: SqueezeStrategy
     ) : LemonadeRepository {
 
         private val listData = listOf(
@@ -18,7 +21,12 @@ interface LemonadeRepository {
         )
 
         override fun next() {
-            if (index.read() == listData.size - 1) index.save(0) else index.save(index.read() + 1)
+            squeezeStrategy.randomApply(index.read() == 1) {
+                if (index.read() == listData.size - 1)
+                    index.save(0)
+                else
+                    index.save(index.read() + 1)
+            }
         }
 
         override fun drawableRes() = listData[index.read()].first

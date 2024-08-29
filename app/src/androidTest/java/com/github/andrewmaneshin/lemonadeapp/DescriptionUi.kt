@@ -1,11 +1,11 @@
 package com.github.andrewmaneshin.lemonadeapp
 
 import android.view.View
-import android.widget.TextView
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import com.github.andrewmaneshin.lemonadeapp.view.description.DescriptionTextView
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 
@@ -16,7 +16,7 @@ class DescriptionUi(id: Int, containerIdMatcher: Matcher<View>?, classTypeMatche
             withId(id),
             containerIdMatcher,
             classTypeMatcher,
-            isAssignableFrom(TextView::class.java)
+            isAssignableFrom(DescriptionTextView::class.java)
         )
     )
 
