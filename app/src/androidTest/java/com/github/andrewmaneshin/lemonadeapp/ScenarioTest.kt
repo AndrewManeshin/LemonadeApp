@@ -1,6 +1,8 @@
 package com.github.andrewmaneshin.lemonadeapp
 
+import android.content.Context
 import androidx.test.ext.junit.rules.ActivityScenarioRule
+import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -8,12 +10,16 @@ import org.junit.Test
 class ScenarioTest {
 
     @get:Rule
-    private val scenarioRule = ActivityScenarioRule(MainActivity::class.java)
+    val scenarioRule = ActivityScenarioRule(MainActivity::class.java)
     private lateinit var lemonadePage: LemonadePage
 
     @Before
     fun setUp() {
-        lemonadePage = LemonadePage()
+        lemonadePage = LemonadePage(InstrumentationRegistry.getInstrumentation().targetContext)
+        InstrumentationRegistry.getInstrumentation().targetContext.getSharedPreferences(
+            R.string.app_name.toString(),
+            Context.MODE_PRIVATE
+        ).edit().clear().apply()
     }
 
     @Test

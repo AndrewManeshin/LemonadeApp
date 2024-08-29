@@ -1,9 +1,13 @@
 package com.github.andrewmaneshin.lemonadeapp.view.image
 
 import android.content.Context
+import android.os.Parcelable
 import android.util.AttributeSet
+import kotlin.properties.Delegates
 
 class Image : androidx.appcompat.widget.AppCompatImageButton, UpdateImageRes {
+
+    private var imageRes by Delegates.notNull<Int>()
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
@@ -14,22 +18,23 @@ class Image : androidx.appcompat.widget.AppCompatImageButton, UpdateImageRes {
     )
 
     override fun update(res: Int) {
+        imageRes = res
         setImageResource(res)
     }
 
-    //     override fun onSaveInstanceState(): Parcelable? {
-//        return super.onSaveInstanceState()?.let {
-//            val savedState = (it)
-//            savedState.save(state)
-//            return savedState
-//        }
-//    }
-//
-//    override fun onRestoreInstanceState(state: Parcelable?) {
-//        val restoredState = state as
-//        super.onRestoreInstanceState(restoredState.superState)
-//        update(restoredState.restore())
-//    }
+    override fun onSaveInstanceState(): Parcelable? {
+        return super.onSaveInstanceState()?.let {
+            val savedState = ImageSavedState(it)
+            savedState.save(imageRes)
+            return savedState
+        }
+    }
+
+    override fun onRestoreInstanceState(state: Parcelable?) {
+        val restoredState = state as ImageSavedState
+        super.onRestoreInstanceState(restoredState.superState)
+        update(restoredState.restore())
+    }
 }
 
 interface UpdateImageRes {
