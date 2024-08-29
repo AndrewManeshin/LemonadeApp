@@ -10,7 +10,7 @@ class LemonadePage {
     private val containerIdMatcher = withParent(withId(R.id.rootLayout))
     private val classTypeMatcher = withParent(isAssignableFrom(LinearLayout::class.java))
     private val imageButtonUi = ImageButtonUi(
-        id = R.id.ImageButton,
+        id = R.id.imageButton,
         containerIdMatcher = containerIdMatcher,
         classTypeMatcher = classTypeMatcher
     )

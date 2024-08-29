@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <com.github.andrewmaneshin.lemonadeapp.view.image.Image
-        android:id="@+id/ImageButton"
+        android:id="@+id/imageButton"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
