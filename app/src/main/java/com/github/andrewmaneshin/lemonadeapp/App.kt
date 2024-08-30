@@ -2,7 +2,6 @@ package com.github.andrewmaneshin.lemonadeapp
 
 import android.app.Application
 import android.content.Context
-import com.github.andrewmaneshin.lemonadeapp.view.SqueezeStrategy
 
 class App : Application() {
 

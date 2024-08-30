@@ -1,7 +1,5 @@
 package com.github.andrewmaneshin.lemonadeapp
 
-import com.github.andrewmaneshin.lemonadeapp.view.SqueezeStrategy
-
 interface LemonadeRepository {
 
     fun next()
@@ -21,11 +19,12 @@ interface LemonadeRepository {
         )
 
         override fun next() {
-            squeezeStrategy.randomApply(index.read() == 1) {
-                if (index.read() == listData.size - 1)
+            val currentIndex = index.read()
+            squeezeStrategy.randomApply(currentIndex == 1) {
+                if (currentIndex == listData.size - 1)
                     index.save(0)
                 else
-                    index.save(index.read() + 1)
+                    index.save(currentIndex + 1)
             }
         }
 

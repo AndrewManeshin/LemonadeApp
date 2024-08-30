@@ -3,11 +3,10 @@ package com.github.andrewmaneshin.lemonadeapp.view.image
 import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
-import kotlin.properties.Delegates
 
-class Image : androidx.appcompat.widget.AppCompatImageButton, UpdateImageRes {
+class LemonadeImageButton : androidx.appcompat.widget.AppCompatImageButton, UpdateImageButton {
 
-    private var imageRes by Delegates.notNull<Int>()
+    private var imageRes = 0
 
     constructor(context: Context) : super(context)
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
@@ -19,7 +18,7 @@ class Image : androidx.appcompat.widget.AppCompatImageButton, UpdateImageRes {
 
     override fun update(res: Int) {
         imageRes = res
-        setImageResource(res)
+        setImageResource(imageRes)
     }
 
     override fun onSaveInstanceState(): Parcelable? {
@@ -37,6 +36,6 @@ class Image : androidx.appcompat.widget.AppCompatImageButton, UpdateImageRes {
     }
 }
 
-interface UpdateImageRes {
+interface UpdateImageButton {
     fun update(res: Int)
 }

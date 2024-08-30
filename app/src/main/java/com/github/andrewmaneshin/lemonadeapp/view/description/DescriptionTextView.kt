@@ -2,6 +2,7 @@ package com.github.andrewmaneshin.lemonadeapp.view.description
 
 import android.content.Context
 import android.util.AttributeSet
+import androidx.annotation.StringRes
 
 class DescriptionTextView : androidx.appcompat.widget.AppCompatTextView, UpdateTextRes {
 
@@ -15,11 +16,11 @@ class DescriptionTextView : androidx.appcompat.widget.AppCompatTextView, UpdateT
 
     override fun getFreezesText() = true
 
-    override fun update(res: Int) {
-        this.text = context.getText(res)
+    override fun update(@StringRes res: Int) {
+        this.setText(res)
     }
 }
 
 interface UpdateTextRes {
-    fun update(res: Int)
+    fun update(@StringRes res: Int)
 }
