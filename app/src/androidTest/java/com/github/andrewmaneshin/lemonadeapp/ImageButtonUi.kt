@@ -6,7 +6,7 @@ import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import com.github.andrewmaneshin.lemonadeapp.view.image.Image
+import com.github.andrewmaneshin.lemonadeapp.view.image.LemonadeImageButton
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 
@@ -17,7 +17,7 @@ class ImageButtonUi(id: Int, containerIdMatcher: Matcher<View>?, classTypeMatche
             withId(id),
             containerIdMatcher,
             classTypeMatcher,
-            isAssignableFrom(Image::class.java)
+            isAssignableFrom(LemonadeImageButton::class.java)
         )
     )
 

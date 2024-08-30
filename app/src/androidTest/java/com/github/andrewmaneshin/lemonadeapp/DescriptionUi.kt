@@ -1,6 +1,7 @@
 package com.github.andrewmaneshin.lemonadeapp
 
 import android.view.View
+import androidx.annotation.StringRes
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
@@ -20,7 +21,7 @@ class DescriptionUi(id: Int, containerIdMatcher: Matcher<View>?, classTypeMatche
         )
     )
 
-    fun withText(text: String) {
+    fun withText(@StringRes text: Int) {
         interaction.check(matches(androidx.test.espresso.matcher.ViewMatchers.withText(text)))
     }
 }

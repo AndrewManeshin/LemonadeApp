@@ -3,12 +3,12 @@ package com.github.andrewmaneshin.lemonadeapp
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.github.andrewmaneshin.lemonadeapp.view.description.UpdateTextRes
-import com.github.andrewmaneshin.lemonadeapp.view.image.UpdateImageRes
+import com.github.andrewmaneshin.lemonadeapp.view.image.UpdateImageButton
 
 interface LemonadeUiState {
 
     fun update(
-        image: UpdateImageRes,
+        image: UpdateImageButton,
         descriptionTextView: UpdateTextRes
     )
 
@@ -18,7 +18,7 @@ interface LemonadeUiState {
     ) : LemonadeUiState {
 
         override fun update(
-            image: UpdateImageRes,
+            image: UpdateImageButton,
             descriptionTextView: UpdateTextRes
         ) {
             image.update(imageResId)
@@ -27,6 +27,6 @@ interface LemonadeUiState {
     }
 
     object Empty : LemonadeUiState {
-        override fun update(image: UpdateImageRes, descriptionTextView: UpdateTextRes) = Unit
+        override fun update(image: UpdateImageButton, descriptionTextView: UpdateTextRes) = Unit
     }
 }

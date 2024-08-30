@@ -12,10 +12,15 @@ class ScenarioTest {
     @get:Rule
     val scenarioRule = ActivityScenarioRule(MainActivity::class.java)
     private lateinit var lemonadePage: LemonadePage
+    private fun checkWithRecreate(block: () -> Unit) {
+        block.invoke()
+        scenarioRule.scenario.recreate()
+        block.invoke()
+    }
 
     @Before
     fun setUp() {
-        lemonadePage = LemonadePage(InstrumentationRegistry.getInstrumentation().targetContext)
+        lemonadePage = LemonadePage()
         InstrumentationRegistry.getInstrumentation().targetContext.getSharedPreferences(
             R.string.app_name.toString(),
             Context.MODE_PRIVATE
@@ -24,24 +29,14 @@ class ScenarioTest {
 
     @Test
     fun test1() {
-        lemonadePage.assertTreeState()
+        checkWithRecreate { lemonadePage.assertTreeState() }
         lemonadePage.clickImage()
-        lemonadePage.assertSqueezeState()
+        checkWithRecreate { lemonadePage.assertSqueezeState() }
         lemonadePage.clickImage()
-        lemonadePage.assertDrinkState()
+        checkWithRecreate { lemonadePage.assertDrinkState() }
         lemonadePage.clickImage()
-        lemonadePage.assertRestartState()
+        checkWithRecreate { lemonadePage.assertRestartState() }
         lemonadePage.clickImage()
-        lemonadePage.assertTreeState()
-    }
-
-    @Test
-    fun test2() {
-        lemonadePage.assertTreeState()
-        lemonadePage.clickImage()
-        lemonadePage.assertSqueezeState()
-
-        scenarioRule.scenario.recreate()
-        lemonadePage.assertSqueezeState()
+        checkWithRecreate { lemonadePage.assertTreeState() }
     }
 }

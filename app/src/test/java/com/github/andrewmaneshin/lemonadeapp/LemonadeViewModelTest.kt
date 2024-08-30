@@ -62,13 +62,13 @@ class LemonadeViewModelTest {
         )
         assertEquals(expected, actual)
 
-        actual = viewModel.init(false)
+        actual = viewModel.init(isFirstRun = false)
         expected = LemonadeUiState.Empty
         assertEquals(expected, actual)
     }
 }
 
-class FakeLemonadeRepository : LemonadeRepository {
+private class FakeLemonadeRepository : LemonadeRepository {
 
     private val listData = listOf(
         Pair(R.drawable.lemon_tree, R.string.tree_description),
@@ -82,7 +82,7 @@ class FakeLemonadeRepository : LemonadeRepository {
         if (index == listData.size - 1) index = 0 else ++index
     }
 
-    override fun drawableRes() = listData.get(index).first
+    override fun drawableRes() = listData[index].first
 
-    override fun descriptionRes() = listData.get(index).second
+    override fun descriptionRes() = listData[index].second
 }

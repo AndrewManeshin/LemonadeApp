@@ -1,17 +1,15 @@
-package com.github.andrewmaneshin.lemonadeapp.view
-
-import com.github.andrewmaneshin.lemonadeapp.IntCache
+package com.github.andrewmaneshin.lemonadeapp
 
 interface SqueezeStrategy {
 
-    fun randomApply(flag: Boolean, block: () -> Unit)
+    fun randomApply(isSqueeze: Boolean, block: () -> Unit)
 
     class Base(
         private val times: IntCache
     ) : SqueezeStrategy {
 
-        override fun randomApply(flag: Boolean, block: () -> Unit) {
-            if (flag) {
+        override fun randomApply(isSqueeze: Boolean, block: () -> Unit) {
+            if (isSqueeze) {
                 if (times.read() == 0) {
                     block.invoke()
                     times.save((1..3).random())
@@ -25,7 +23,7 @@ interface SqueezeStrategy {
     }
 
     object Test : SqueezeStrategy {
-        override fun randomApply(flag: Boolean, block: () -> Unit) {
+        override fun randomApply(isSqueeze: Boolean, block: () -> Unit) {
             block.invoke()
         }
     }
