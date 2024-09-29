@@ -1,9 +1,9 @@
-package com.github.andrewmaneshin.lemonadeapp
+package com.github.andrewmaneshin.lemonadeapp.lemonade.presentation
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import com.github.andrewmaneshin.lemonadeapp.view.description.UpdateTextRes
-import com.github.andrewmaneshin.lemonadeapp.view.image.UpdateImageButton
+import com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.view.description.UpdateTextRes
+import com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.view.image.UpdateImageButton
 
 interface LemonadeUiState {
 

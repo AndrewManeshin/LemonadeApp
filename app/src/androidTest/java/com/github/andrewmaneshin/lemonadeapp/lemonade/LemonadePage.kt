@@ -1,13 +1,14 @@
-package com.github.andrewmaneshin.lemonadeapp
+package com.github.andrewmaneshin.lemonadeapp.lemonade
 
 import android.widget.LinearLayout
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withParent
+import com.github.andrewmaneshin.lemonadeapp.R
 
 class LemonadePage {
 
-    private val containerIdMatcher = withParent(withId(R.id.rootLayout))
+    private val containerIdMatcher = withParent(withId(R.id.lemonadeContainer))
     private val classTypeMatcher = withParent(isAssignableFrom(LinearLayout::class.java))
     private val imageButtonUi = ImageButtonUi(
         id = R.id.imageButton,

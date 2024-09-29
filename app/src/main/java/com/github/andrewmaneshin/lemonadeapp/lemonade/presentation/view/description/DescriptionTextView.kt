@@ -1,4 +1,4 @@
-package com.github.andrewmaneshin.lemonadeapp.view.description
+package com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.view.description
 
 import android.content.Context
 import android.util.AttributeSet

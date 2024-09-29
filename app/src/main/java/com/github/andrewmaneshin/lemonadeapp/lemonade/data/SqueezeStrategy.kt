@@ -1,4 +1,6 @@
-package com.github.andrewmaneshin.lemonadeapp
+package com.github.andrewmaneshin.lemonadeapp.lemonade.data
+
+import com.github.andrewmaneshin.lemonadeapp.IntCache
 
 interface SqueezeStrategy {
 

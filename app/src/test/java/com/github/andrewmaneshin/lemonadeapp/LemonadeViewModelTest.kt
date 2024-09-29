@@ -1,5 +1,8 @@
 package com.github.andrewmaneshin.lemonadeapp
 
+import com.github.andrewmaneshin.lemonadeapp.lemonade.data.LemonadeRepository
+import com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.LemonadeUiState
+import com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.LemonadeViewModel
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test

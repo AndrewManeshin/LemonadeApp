@@ -1,4 +1,6 @@
-package com.github.andrewmaneshin.lemonadeapp
+package com.github.andrewmaneshin.lemonadeapp.lemonade.presentation
+
+import com.github.andrewmaneshin.lemonadeapp.lemonade.data.LemonadeRepository
 
 class LemonadeViewModel(
     private val repository: LemonadeRepository
