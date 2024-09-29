@@ -1,5 +1,11 @@
 package com.github.andrewmaneshin.lemonadeapp
 
+import com.github.andrewmaneshin.lemonadeapp.load.data.LoadRepository
+import com.github.andrewmaneshin.lemonadeapp.load.data.LoadResult
+import com.github.andrewmaneshin.lemonadeapp.load.data.RunAsync
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.LoadUiState
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.LoadViewModel
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.UiObservable
 import org.junit.Assert.assertEquals
 import org.junit.Before
 import org.junit.Test
@@ -87,7 +93,7 @@ class LoadViewModelTest {
 
         assertEquals(
             LoadUiState.Error(message = "no internet connection"),
-            newInstanceOfFragment.statesList.first
+            newInstanceOfFragment.statesList.first()
         )
         assertEquals(1, newInstanceOfFragment.statesList.size)
     }

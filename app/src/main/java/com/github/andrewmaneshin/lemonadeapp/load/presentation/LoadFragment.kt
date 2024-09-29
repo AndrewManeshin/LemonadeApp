@@ -10,6 +10,7 @@ import com.github.andrewmaneshin.lemonadeapp.databinding.FragmentLoadBinding
 
 class LoadFragment : Fragment() {
 
+    private lateinit var viewModel: LoadViewModel
     private var _binding: FragmentLoadBinding? = null
     private val binding
         get() = _binding!!
