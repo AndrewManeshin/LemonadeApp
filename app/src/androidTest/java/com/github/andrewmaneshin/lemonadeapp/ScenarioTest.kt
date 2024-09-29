@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.platform.app.InstrumentationRegistry
 import com.github.andrewmaneshin.lemonadeapp.lemonade.LemonadePage
+import com.github.andrewmaneshin.lemonadeapp.load.LoadPage
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
@@ -30,7 +31,7 @@ class ScenarioTest {
     fun successTest() {
         checkWithRecreate { lemonadePage.assertTreeState() }
         lemonadePage.clickImage()
-        lemonadePage.doesNotExit()
+        lemonadePage.doesNotExist()
 
         checkWithRecreate { loadPage.assertProgressState() }
         loadPage.waitTillGone()
@@ -48,10 +49,10 @@ class ScenarioTest {
     fun errorTest() {
         checkWithRecreate { lemonadePage.assertTreeState() }
         lemonadePage.clickImage()
-        lemonadePage.doesNotExit()
+        lemonadePage.doesNotExist()
 
         checkWithRecreate { loadPage.assertProgressState() }
-        loadPage.waitTillGone()
+        loadPage.waitTillError()
 
         checkWithRecreate { loadPage.assertErrorState() }
         loadPage.clickRetry()
