@@ -6,6 +6,7 @@ import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.isRoot
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import com.github.andrewmaneshin.lemonadeapp.load.view.progress.LoadView
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 
