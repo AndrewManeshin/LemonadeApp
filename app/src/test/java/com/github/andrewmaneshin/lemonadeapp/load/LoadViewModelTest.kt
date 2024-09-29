@@ -1,4 +1,4 @@
-package com.github.andrewmaneshin.lemonadeapp
+package com.github.andrewmaneshin.lemonadeapp.load
 
 import com.github.andrewmaneshin.lemonadeapp.load.data.LoadRepository
 import com.github.andrewmaneshin.lemonadeapp.load.data.LoadResult
