@@ -6,6 +6,8 @@ interface SqueezeStrategy {
 
     fun randomApply(isSqueeze: Boolean, block: () -> Unit)
 
+    fun needToLoad(): Boolean = false
+
     class Base(
         private val times: IntCache
     ) : SqueezeStrategy {
@@ -14,7 +16,7 @@ interface SqueezeStrategy {
             if (isSqueeze) {
                 if (times.read() == 0) {
                     block.invoke()
-                    times.save((1..3).random())
+//                    times.save((1..3).random())
                 } else {
                     times.save(times.read() - 1)
                 }
@@ -22,6 +24,8 @@ interface SqueezeStrategy {
                 block.invoke()
             }
         }
+
+        override fun needToLoad(): Boolean = times.read() == 0
     }
 
     object Test : SqueezeStrategy {
