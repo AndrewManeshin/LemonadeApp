@@ -12,16 +12,14 @@ class ScenarioTest {
 
     @get:Rule
     val scenarioRule = ActivityScenarioRule(MainActivity::class.java)
+
     private lateinit var lemonadePage: LemonadePage
-    private fun checkWithRecreate(block: () -> Unit) {
-        block.invoke()
-        scenarioRule.scenario.recreate()
-        block.invoke()
-    }
+    private lateinit var loadPage: LoadPage
 
     @Before
     fun setUp() {
         lemonadePage = LemonadePage()
+        loadPage = LoadPage()
         InstrumentationRegistry.getInstrumentation().targetContext.getSharedPreferences(
             R.string.app_name.toString(),
             Context.MODE_PRIVATE
@@ -29,9 +27,14 @@ class ScenarioTest {
     }
 
     @Test
-    fun test1() {
+    fun successTest() {
         checkWithRecreate { lemonadePage.assertTreeState() }
         lemonadePage.clickImage()
+        lemonadePage.doesNotExit()
+
+        checkWithRecreate { loadPage.assertProgressState() }
+        loadPage.waitTillGone()
+
         checkWithRecreate { lemonadePage.assertSqueezeState() }
         lemonadePage.clickImage()
         checkWithRecreate { lemonadePage.assertDrinkState() }
@@ -39,5 +42,35 @@ class ScenarioTest {
         checkWithRecreate { lemonadePage.assertRestartState() }
         lemonadePage.clickImage()
         checkWithRecreate { lemonadePage.assertTreeState() }
+    }
+
+    @Test
+    fun errorTest() {
+        checkWithRecreate { lemonadePage.assertTreeState() }
+        lemonadePage.clickImage()
+        lemonadePage.doesNotExit()
+
+        checkWithRecreate { loadPage.assertProgressState() }
+        loadPage.waitTillGone()
+
+        checkWithRecreate { loadPage.assertErrorState() }
+        loadPage.clickRetry()
+
+        checkWithRecreate { loadPage.assertProgressState() }
+        loadPage.waitTillGone()
+
+        checkWithRecreate { lemonadePage.assertSqueezeState() }
+        lemonadePage.clickImage()
+        checkWithRecreate { lemonadePage.assertDrinkState() }
+        lemonadePage.clickImage()
+        checkWithRecreate { lemonadePage.assertRestartState() }
+        lemonadePage.clickImage()
+        checkWithRecreate { lemonadePage.assertTreeState() }
+    }
+
+    private fun checkWithRecreate(block: () -> Unit) {
+        block.invoke()
+        scenarioRule.scenario.recreate()
+        block.invoke()
     }
 }
