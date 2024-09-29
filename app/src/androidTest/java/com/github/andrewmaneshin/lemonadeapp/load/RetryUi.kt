@@ -5,7 +5,7 @@ import androidx.annotation.IdRes
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.matcher.ViewMatchers.isAssignableFrom
 import androidx.test.espresso.matcher.ViewMatchers.withId
-import com.github.andrewmaneshin.lemonadeapp.load.view.retry.RetryButton
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.view.retry.RetryButton
 import org.hamcrest.Matcher
 import org.hamcrest.Matchers.allOf
 

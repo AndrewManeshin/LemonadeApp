@@ -1,12 +1,12 @@
-package com.github.andrewmaneshin.lemonadeapp.load.view.progress
+package com.github.andrewmaneshin.lemonadeapp.load.presentation.view.progress
 
 import android.content.Context
 import android.os.Parcelable
 import android.util.AttributeSet
 import android.widget.ProgressBar
-import com.github.andrewmaneshin.lemonadeapp.load.view.visibility.UpdateVisibility
-import com.github.andrewmaneshin.lemonadeapp.load.view.visibility.VisibilitySavedState
-import com.github.andrewmaneshin.lemonadeapp.load.view.visibility.VisibilityUiState
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.view.visibility.UpdateVisibility
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.view.visibility.VisibilitySavedState
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.view.visibility.VisibilityUiState
 
 class LoadView : ProgressBar, UpdateVisibility {
 

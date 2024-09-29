@@ -1,4 +1,4 @@
-package com.github.andrewmaneshin.lemonadeapp.load.view.error
+package com.github.andrewmaneshin.lemonadeapp.load.presentation.view.error
 
 import android.content.Context
 import android.os.Parcelable

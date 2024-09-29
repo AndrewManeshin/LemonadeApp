@@ -1,4 +1,4 @@
-package com.github.andrewmaneshin.lemonadeapp.load.view.visibility
+package com.github.andrewmaneshin.lemonadeapp.load.presentation.view.visibility
 
 interface UpdateVisibility {
 

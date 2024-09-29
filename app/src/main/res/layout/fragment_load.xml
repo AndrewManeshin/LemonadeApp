@@ -7,7 +7,7 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.github.andrewmaneshin.lemonadeapp.load.view.error.ErrorTextView
+    <com.github.andrewmaneshin.lemonadeapp.load.presentation.view.error.ErrorTextView
         android:id="@+id/errorTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,14 +15,14 @@
         android:padding="8dp"
         tools:text="@string/no_internet_connection" />
 
-    <com.github.andrewmaneshin.lemonadeapp.load.view.retry.RetryButton
+    <com.github.andrewmaneshin.lemonadeapp.load.presentation.view.retry.RetryButton
         android:id="@+id/retryButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/material_dynamic_neutral80"
         android:text="@string/retry" />
 
-    <com.github.andrewmaneshin.lemonadeapp.load.view.progress.LoadView
+    <com.github.andrewmaneshin.lemonadeapp.load.presentation.view.progress.LoadView
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
