@@ -1,4 +1,4 @@
-package com.github.andrewmaneshin.lemonadeapp.view.image
+package com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.view.image
 
 import android.os.Parcel
 import android.os.Parcelable

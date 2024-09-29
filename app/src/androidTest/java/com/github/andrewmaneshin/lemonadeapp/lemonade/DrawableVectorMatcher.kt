@@ -1,4 +1,4 @@
-package com.github.andrewmaneshin.lemonadeapp
+package com.github.andrewmaneshin.lemonadeapp.lemonade
 
 import android.view.View
 import android.widget.ImageButton

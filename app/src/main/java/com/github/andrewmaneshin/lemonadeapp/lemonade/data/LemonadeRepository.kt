@@ -1,4 +1,7 @@
-package com.github.andrewmaneshin.lemonadeapp
+package com.github.andrewmaneshin.lemonadeapp.lemonade.data
+
+import com.github.andrewmaneshin.lemonadeapp.IntCache
+import com.github.andrewmaneshin.lemonadeapp.R
 
 interface LemonadeRepository {
 
