@@ -44,4 +44,9 @@ class LemonadePage {
         imageButtonUi.withDrawable(R.drawable.lemon_restart)
         descriptionUi.withText(R.string.restart_description)
     }
+
+    fun doesNotExist() {
+        imageButtonUi.assertDoesNotExist()
+        descriptionUi.assertDoesNotExist()
+    }
 }
