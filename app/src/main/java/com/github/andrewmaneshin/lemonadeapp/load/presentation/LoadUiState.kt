@@ -1,6 +1,7 @@
 package com.github.andrewmaneshin.lemonadeapp.load.presentation
 
 import com.github.andrewmaneshin.lemonadeapp.R
+import com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.NavigateToLemonade
 import com.github.andrewmaneshin.lemonadeapp.load.presentation.view.error.ErrorTextView
 import com.github.andrewmaneshin.lemonadeapp.load.presentation.view.error.ErrorUiState
 import com.github.andrewmaneshin.lemonadeapp.load.presentation.view.progress.LoadView

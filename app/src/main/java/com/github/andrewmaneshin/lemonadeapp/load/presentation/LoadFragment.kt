@@ -7,10 +7,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.github.andrewmaneshin.lemonadeapp.App
 import com.github.andrewmaneshin.lemonadeapp.databinding.FragmentLoadBinding
+import com.github.andrewmaneshin.lemonadeapp.lemonade.presentation.NavigateToLemonade
 
 class LoadFragment : Fragment() {
 
-    private lateinit var viewModel: LoadViewModel
+    private val viewModel: LoadViewModel by lazy {
+        (requireActivity().application as App).loadViewModel
+    }
     private var _binding: FragmentLoadBinding? = null
     private val binding
         get() = _binding!!
@@ -26,7 +29,7 @@ class LoadFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = (requireActivity().application as App).loadViewModel
+//        val viewModel = (requireActivity().application as App).loadViewModel
 
         binding.retryButton.setOnClickListener {
             viewModel.load()
@@ -43,7 +46,7 @@ class LoadFragment : Fragment() {
                 binding.retryButton,
                 binding.errorTextView
             )
-            uiState.navigate(requireActivity() as NavigateToGame)
+            uiState.navigate(requireActivity() as NavigateToLemonade)
         })
     }
 

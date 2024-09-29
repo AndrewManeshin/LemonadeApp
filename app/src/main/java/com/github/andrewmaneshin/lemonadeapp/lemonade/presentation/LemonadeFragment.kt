@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.github.andrewmaneshin.lemonadeapp.App
 import com.github.andrewmaneshin.lemonadeapp.databinding.FragmentLemonadeBinding
+import com.github.andrewmaneshin.lemonadeapp.load.presentation.NavigateToLoad
 
 class LemonadeFragment : Fragment() {
 
@@ -26,7 +27,7 @@ class LemonadeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = (requireActivity().application as App).viewModel
+        val viewModel = (requireActivity().application as App).lemonadeViewModel
         lateinit var uiState: LemonadeUiState
         val update = {
             with(binding) {
@@ -34,6 +35,7 @@ class LemonadeFragment : Fragment() {
                     imageButton,
                     descriptionTextView
                 )
+                uiState.navigate(requireActivity() as NavigateToLoad)
             }
         }
 

@@ -8,6 +8,7 @@ interface LemonadeRepository {
     fun next()
     fun drawableRes(): Int
     fun descriptionRes(): Int
+    fun isSqueeze(): Boolean
 
     class Base(
         private val index: IntCache,
@@ -34,5 +35,7 @@ interface LemonadeRepository {
         override fun drawableRes() = listData[index.read()].first
 
         override fun descriptionRes() = listData[index.read()].second
+
+        override fun isSqueeze() = index.read() == 0 && squeezeStrategy.needToLoad()
     }
 }

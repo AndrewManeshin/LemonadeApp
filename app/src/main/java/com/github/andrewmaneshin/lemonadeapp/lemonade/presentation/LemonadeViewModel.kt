@@ -8,7 +8,10 @@ class LemonadeViewModel(
 
     fun next(): LemonadeUiState {
         repository.next()
-        return LemonadeUiState.Base(repository.drawableRes(), repository.descriptionRes())
+        return if (repository.isSqueeze())
+            LemonadeUiState.Squeeze(repository.drawableRes(), repository.descriptionRes())
+        else
+            LemonadeUiState.Base(repository.drawableRes(), repository.descriptionRes())
     }
 
     fun init(isFirstRun: Boolean): LemonadeUiState {
