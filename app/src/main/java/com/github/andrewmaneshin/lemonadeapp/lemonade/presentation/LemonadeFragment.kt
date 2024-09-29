@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.github.andrewmaneshin.lemonadeapp.App
+import com.github.andrewmaneshin.lemonadeapp.ProvideViewModel
 import com.github.andrewmaneshin.lemonadeapp.databinding.FragmentLemonadeBinding
 import com.github.andrewmaneshin.lemonadeapp.load.presentation.NavigateToLoad
 
@@ -27,7 +27,8 @@ class LemonadeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = (requireActivity().application as App).lemonadeViewModel
+        val viewModel =
+            (requireActivity().application as ProvideViewModel).makeViewModel(LemonadeViewModel::class.java)
         lateinit var uiState: LemonadeUiState
         val update = {
             with(binding) {

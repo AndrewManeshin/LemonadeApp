@@ -1,10 +1,11 @@
 package com.github.andrewmaneshin.lemonadeapp.lemonade.presentation
 
+import com.github.andrewmaneshin.lemonadeapp.MyViewModel
 import com.github.andrewmaneshin.lemonadeapp.lemonade.data.LemonadeRepository
 
 class LemonadeViewModel(
     private val repository: LemonadeRepository
-) {
+) : MyViewModel {
 
     fun next(): LemonadeUiState {
         repository.next()
